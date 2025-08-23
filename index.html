@@ -1,80 +1,70 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ALI-DREAM-KIDS • Animatori pentru copii în Arad</title>
-  <meta name="description" content="Face painting, modelaj baloane, mascote, jocuri și spectacole pentru copii în Arad. Prețuri transparente. Rezervă acum!">
-  <link rel="icon" href="favicon.ico">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { brand: { DEFAULT: '#2563eb', light: '#93c5fd' } }
-        }
-      }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALI-DREAM-KIDS • Animatori pentru copii în Arad</title>
+<link rel="icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: { brand: { DEFAULT: '#2563eb', light: '#93c5fd' } }
     }
-  </script>
-
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
-
+  }
+}
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="style.css">
 </head>
 <body class="relative bg-white">
-  <div class="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-blue-100 to-white -z-10"></div>
 
-  <!-- HEADER FIX -->
-  <header class="fixed top-0 left-0 w-full z-50 bg-white shadow-lg">
-    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
-      <a href="#" class="font-bold text-xl text-brand">ALI-DREAM-KIDS</a>
-      <nav class="hidden md:flex items-center gap-6 text-sm text-gray-700">
-        <a href="#servicii" class="hover:text-brand">Servicii</a>
-        <a href="#galerie" class="hover:text-brand">Galerie</a>
-        <a href="#testimonials" class="hover:text-brand">Testimoniale</a>
-        <a href="#contact" class="hover:text-brand">Contact</a>
-      </nav>
-      <div class="flex items-center gap-2">
-        <button onclick="setLang('ro')" class="hover:text-brand">RO</button>
-        <button onclick="setLang('en')" class="hover:text-brand">EN</button>
-        <button id="menuBtn" class="md:hidden text-gray-700 text-2xl">☰</button>
-      </div>
+<div class="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-blue-100 to-white -z-10"></div>
+
+<!-- HEADER FIX -->
+<header class="fixed top-0 left-0 w-full z-50 bg-white shadow-lg">
+  <div class="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
+    <a href="#" class="font-bold text-xl text-brand">ALI-DREAM-KIDS</a>
+    <nav class="hidden md:flex items-center gap-6 text-sm text-gray-700">
+      <a href="#servicii" data-ro="Servicii" data-en="Services">Servicii</a>
+      <a href="#galerie" data-ro="Galerie" data-en="Gallery">Galerie</a>
+      <a href="#testimonials" data-ro="Testimoniale" data-en="Testimonials">Testimoniale</a>
+      <a href="#contact" data-ro="Contact" data-en="Contact">Contact</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button onclick="setLang('ro')" class="hover:text-brand">RO</button>
+      <button onclick="setLang('en')" class="hover:text-brand">EN</button>
+      <button id="menuBtn" class="md:hidden text-gray-700 text-2xl">☰</button>
     </div>
+  </div>
 
-    <!-- Mobile dropdown -->
-    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200">
-      <nav class="px-4 py-3 flex flex-col gap-3 text-gray-700">
-        <a href="#servicii">Servicii</a>
-        <a href="#galerie">Galerie</a>
-        <a href="#testimonials">Testimoniale</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200">
+    <nav class="px-4 py-3 flex flex-col gap-3 text-gray-700">
+      <a href="#servicii" data-ro="Servicii" data-en="Services">Servicii</a>
+      <a href="#galerie" data-ro="Galerie" data-en="Gallery">Galerie</a>
+      <a href="#testimonials" data-ro="Testimoniale" data-en="Testimonials">Testimoniale</a>
+      <a href="#contact" data-ro="Contact" data-en="Contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <main class="pt-16">
+<main class="pt-16">
 
-    <!-- HERO cu gradient doar aici -->
-    <section class="pt-16 pb-16 text-center relative">
+<!-- HERO -->
+<section class="pt-16 pb-16 text-center relative">
   <div class="max-w-6xl mx-auto px-4 relative z-10">
-    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900">Animatori pentru copii în Arad</h1>
-    <p class="mt-4 text-lg text-gray-600">Face painting, modelaj baloane, mascote și spectacole pentru cele mai frumoase petreceri</p>
+    <h1 id="heroTitle" class="text-4xl md:text-5xl font-extrabold text-gray-900"></h1>
+    <p id="heroDesc" class="mt-4 text-lg text-gray-600"></p>
     <div class="mt-6 space-x-4">
-      <a href="#contact" class="bg-brand text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-blue-700">Rezervă acum</a>
-      <a href="#servicii" class="px-6 py-3 rounded-lg font-semibold border border-brand text-brand bg-white hover:bg-gray-100">Vezi servicii</a>
+      <a id="btnReserve" href="#contact" class="bg-brand text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-blue-700"></a>
+      <a id="btnServices" href="#servicii" class="px-6 py-3 rounded-lg font-semibold border border-brand text-brand bg-white hover:bg-gray-100"></a>
     </div>
   </div>
 </section>
 
-    <!-- GALLERY FULL-WIDTH -->
+<!-- GALLERY FULL-WIDTH -->
     <section id="galerie" class="pt-4 pb-0 bg-gray-50">
   <div class="max-w-full mx-auto px-4">
     <div class="swiper mySwiper -mt-12">
@@ -102,74 +92,163 @@
   </div>
 </section>
 
-    <!-- SERVICES -->
-    <section id="servicii" class="pt-0 pb-16 bg-gray-50">
+<!-- SERVICII -->
+<section id="servicii" class="pt-0 pb-16 bg-gray-50">
   <div class="max-w-6xl mx-auto px-4 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-12 pt-8">Serviciile noastre</h2>
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 pt-8"> 
+      <span id="servicesTitle"></span>
+    </h2>
     <div class="grid md:grid-cols-3 gap-8">
-      <div class="card"> 
-        <h3 class="text-xl font-semibold mb-2">Picturi pe față</h3>
-        <p class="text-gray-600">Transformăm copiii în eroii lor preferați cu picturi colorate și sigure.</p>
+      <div class="card">
+        <h3 id="service1Title" class="text-xl font-semibold mb-2"></h3>
+        <p id="service1Desc" class="text-gray-600"></p>
       </div>
       <div class="card">
-        <h3 class="text-xl font-semibold mb-2">Modelaj baloane</h3>
-        <p class="text-gray-600">Distracție garantată cu baloane modelate în forme jucăușe și creative.</p>
+        <h3 id="service2Title" class="text-xl font-semibold mb-2"></h3>
+        <p id="service2Desc" class="text-gray-600"></p>
       </div>
       <div class="card">
-        <h3 class="text-xl font-semibold mb-2">Mascote & spectacole</h3>
-        <p class="text-gray-600">Personaje îndrăgite și show-uri interactive pentru întreaga familie.</p>
+        <h3 id="service3Title" class="text-xl font-semibold mb-2"></h3>
+        <p id="service3Desc" class="text-gray-600"></p>
       </div>
     </div>
   </div>
 </section>
 
-    <!-- TESTIMONIALE -->
-    <section id="testimonials" class="py-16 bg-white">
-      <div class="max-w-6xl mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-12">Ce spun părinții</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="card">„Copiii s-au distrat de minune! Recomand cu drag.” <br><span class="font-semibold">– Andreea M.</span></div>
-          <div class="card">„Mascotele au fost adorabile și atmosfera perfectă.” <br><span class="font-semibold">– Ioana D.</span></div>
-          <div class="card">„Profesioniști și foarte atenți cu cei mici.” <br><span class="font-semibold">– Mihai P.</span></div>
-        </div>
-      </div>
-    </section>
+<!-- TESTIMONIALE -->
+<section id="testimonials" class="py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-12" id="testimonialsTitle"></h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div id="testimonial1" class="card"></div>
+      <div id="testimonial2" class="card"></div>
+      <div id="testimonial3" class="card"></div>
+    </div>
+  </div>
+</section>
 
-    <!-- CONTACT / FOOTER -->
-    <section id="contact" class="py-16 bg-gray-50">
-      <div class="max-w-6xl mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-6">Contact</h2>
-        <p class="mb-2">📞 <strong>Alina Toma:</strong> <a href="tel:+40740222888">0740-222888</a></p>
-        <p class="mb-2">📞 <strong>Marius George:</strong> <a href="tel:+40788111112">0788-111112</a></p>
-        <p class="text-gray-600">Arad, România</p>
-        <p class="mt-4 text-sm text-gray-500">© <span id="year"></span> ALI-DREAM-KIDS. Toate drepturile rezervate.</p>
-      </div>
-    </section>
+<!-- CONTACT -->
+<section id="contact" class="py-16 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h2 id="contactTitle" class="text-3xl font-bold mb-6"></h2>
+    <p id="contactAlina" class="mb-2"></p>
+    <p id="contactMarius" class="mb-2"></p>
+    <p id="contactLocation" class="text-gray-600"></p>
+    <p class="mt-4 text-sm text-gray-500" id="footerText"></p>
+  </div>
+</section>
 
-  </main>
+</main>
 
-  <!-- SCRIPTS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-  <script>
-    const mobileBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if(mobileBtn && mobileMenu) mobileBtn.addEventListener('click', ()=>mobileMenu.classList.toggle('hidden'));
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+const texts = {
+  ro: {
+    heroTitle: "Animatori pentru copii în Arad",
+    heroDesc: "Face painting, modelaj baloane, mascote și spectacole pentru cele mai frumoase petreceri",
+    btnReserve: "Rezervă acum",
+    btnServices: "Vezi servicii",
+    servicesTitle: "Serviciile noastre",
+    services: [
+      { title: "Picturi pe față", desc: "Transformăm copiii în eroii lor preferați cu picturi colorate și sigure." },
+      { title: "Modelaj baloane", desc: "Distracție garantată cu baloane modelate în forme jucăușe și creative." },
+      { title: "Mascote & spectacole", desc: "Personaje îndrăgite și show-uri interactive pentru întreaga familie." }
+    ],
+    testimonialsTitle: "Ce spun părinții",
+    testimonials: [
+      "Copiii s-au distrat de minune! Recomand cu drag. – Andreea M.",
+      "Mascotele au fost adorabile și atmosfera perfectă. – Ioana D.",
+      "Profesioniști și foarte atenți cu cei mici. – Mihai P."
+    ],
+    contact: {
+      title: "Contact",
+      alina: "📞 Alina Toma: 0740-222888",
+      marius: "📞 Marius George: 0788-111112",
+      location: "Arad, România"
+    },
+    footer: "© ALI-DREAM-KIDS. Toate drepturile rezervate."
+  },
+  en: {
+    heroTitle: "Kids Entertainers in Arad",
+    heroDesc: "Face painting, balloon modeling, mascots and shows for the best parties",
+    btnReserve: "Book now",
+    btnServices: "See services",
+    servicesTitle: "Our Services",
+    services: [
+      { title: "Face Painting", desc: "We transform children into their favorite heroes with colorful and safe face painting." },
+      { title: "Balloon Modeling", desc: "Guaranteed fun with balloons shaped in playful and creative forms." },
+      { title: "Mascots & Shows", desc: "Beloved characters and interactive shows for the whole family." }
+    ],
+    testimonialsTitle: "What Parents Say",
+    testimonials: [
+      "The kids had a blast! Highly recommend. – Andreea M.",
+      "The mascots were adorable and the atmosphere was perfect. – Ioana D.",
+      "Professional and very attentive with the little ones. – Mihai P."
+    ],
+    contact: {
+      title: "Contact",
+      alina: "📞 Alina Toma: 0740-222888",
+      marius: "📞 Marius George: 0788-111112",
+      location: "Arad, Romania"
+    },
+    footer: "© ALI-DREAM-KIDS. All rights reserved."
+  }
+};
 
-    function setLang(l){ document.documentElement.dataset.lang=l; try{localStorage.setItem('lang',l);}catch(e){} }
-    (function initLang(){ const saved=localStorage.getItem('lang')||'ro'; document.documentElement.dataset.lang=saved; })();
+function updateLang(lang){
+  document.getElementById('heroTitle').textContent = texts[lang].heroTitle;
+  document.getElementById('heroDesc').textContent = texts[lang].heroDesc;
+  document.getElementById('btnReserve').textContent = texts[lang].btnReserve;
+  document.getElementById('btnServices').textContent = texts[lang].btnServices;
 
-    const swiper = new Swiper('.mySwiper',{
-      loop:true,
-      autoplay:{delay:3000, disableOnInteraction:false},
-      slidesPerView:1,
-      spaceBetween:20,
-      pagination:{el:'.swiper-pagination', clickable:true},
-      navigation:{nextEl:'.swiper-button-next', prevEl:'.swiper-button-prev'},
-      breakpoints:{768:{slidesPerView:2},1024:{slidesPerView:3}}
-    });
+  document.getElementById('servicesTitle').textContent = texts[lang].servicesTitle;
+  texts[lang].services.forEach((s,i)=>{
+    document.getElementById(`service${i+1}Title`).textContent = s.title;
+    document.getElementById(`service${i+1}Desc`).textContent = s.desc;
+  });
 
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  document.getElementById('testimonialsTitle').textContent = texts[lang].testimonialsTitle;
+  texts[lang].testimonials.forEach((t,i)=>{
+    document.getElementById(`testimonial${i+1}`).textContent = t;
+  });
+
+  document.getElementById('contactTitle').textContent = texts[lang].contact.title;
+  document.getElementById('contactAlina').textContent = texts[lang].contact.alina;
+  document.getElementById('contactMarius').textContent = texts[lang].contact.marius;
+  document.getElementById('contactLocation').textContent = texts[lang].contact.location;
+  document.getElementById('footerText').textContent = texts[lang].footer;
+}
+
+function updateNavbarLang(lang){
+  document.querySelectorAll('nav a[data-ro]').forEach(el => {
+    el.textContent = lang === 'ro' ? el.dataset.ro : el.dataset.en;
+  });
+}
+
+function setLang(l){
+  document.documentElement.dataset.lang = l;
+  try{ localStorage.setItem('lang',l); } catch(e){}
+  updateLang(l);
+  updateNavbarLang(l);
+}
+
+(function initLang(){
+  const saved = localStorage.getItem('lang') || 'ro';
+  document.documentElement.dataset.lang = saved;
+  updateLang(saved);
+  updateNavbarLang(saved);
+})();
+
+const swiper = new Swiper('.mySwiper',{
+  loop:true,
+  autoplay:{delay:3000, disableOnInteraction:false},
+  slidesPerView:1,
+  spaceBetween:20,
+  pagination:{el:'.swiper-pagination', clickable:true},
+  navigation:{nextEl:'.swiper-button-next', prevEl:'.swiper-button-prev'},
+  breakpoints:{768:{slidesPerView:2},1024:{slidesPerView:3}}
+});
+</script>
 
 </body>
 </html>
