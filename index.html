@@ -1,343 +1,175 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ALI-DREAM-KIDS • Animatori pentru copii în Arad</title>
-  <meta name="description" content="Face painting, modelaj baloane, mascote, jocuri și spectacole pentru copii în Arad. Prețuri transparente. Rezervă acum!" />
-  <link rel="icon" href="favicon.ico" />
+  <meta name="description" content="Face painting, modelaj baloane, mascote, jocuri și spectacole pentru copii în Arad. Prețuri transparente. Rezervă acum!">
+  <link rel="icon" href="favicon.ico">
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: {
-            brand: {
-              DEFAULT: '#2563eb',
-              light: '#93c5fd',
-            }
-          }
+          colors: { brand: { DEFAULT: '#2563eb', light: '#93c5fd' } }
         }
       }
     }
   </script>
 
-  <meta property="og:title" content="ALI-DREAM-KIDS • Animatori pentru copii în Arad" />
-  <meta property="og:description" content="Face painting, modelaj baloane, mascote, jocuri și spectacole pentru copii în Arad." />
-  <meta property="og:image" content="images/og-preview.jpg" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "ALI-DREAM-KIDS",
-    "description": "Servicii animatori copii: face painting, modelaj baloane, mascote, jocuri și spectacole.",
-    "url": "https://[your-subdomain].github.io/[repo-name]/",
-    "telephone": ["+40740222888", "+40788111112"],
-    "areaServed": "Arad",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Arad",
-      "addressCountry": "RO"
-    },
-    "openingHours": "Mo-Su 09:00-20:00"
-  }
-  </script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
 
-  <style>
-    .section { padding-top: 4rem; padding-bottom: 4rem; }
-    .section-title { @apply text-3xl md:text-4xl font-extrabold tracking-tight; }
-    .card { @apply bg-white rounded-2xl shadow-lg p-6 border border-gray-100; }
-    .btn { @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold shadow-sm border border-transparent bg-brand text-white hover:bg-blue-700 transition; }
-    .btn-outline { @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold border border-blue-200 hover:border-blue-400 text-blue-700 bg-white; }
-  </style>
 </head>
-<body class="text-gray-800 antialiased bg-white">
-  <!-- Header -->
-  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-gray-100">
-    <nav class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2 font-extrabold text-xl">
-        <span class="text-2xl">🎉</span> <span>ALI-DREAM-KIDS</span>
-      </a>
-      <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-gray-200" aria-label="Deschide meniul">☰</button>
-      <ul id="desktopNav" class="hidden md:flex items-center gap-6 text-sm">
-        <li><a class="hover:text-brand" href="#services"><span data-lang="ro">Servicii</span><span data-lang="en" class="hidden">Services</span></a></li>
-        <li><a class="hover:text-brand" href="#packages"><span data-lang="ro">Pachete</span><span data-lang="en" class="hidden">Packages</span></a></li>
-        <li><a class="hover:text-brand" href="#gallery"><span data-lang="ro">Galerie</span><span data-lang="en" class="hidden">Gallery</span></a></li>
-        <li><a class="hover:text-brand" href="#contact"><span data-lang="ro">Contact</span><span data-lang="en" class="hidden">Contact</span></a></li>
-      </ul>
-      <div class="flex items-center gap-3">
-        <a class="hidden md:inline-flex btn-outline" href="tel:+40740222888"><span data-lang="ro">Sună Alina</span><span data-lang="en" class="hidden">Call Alina</span></a>
-        <a class="hidden md:inline-flex btn-outline" href="tel:+40788111112"><span data-lang="ro">Sună Marius</span><span data-lang="en" class="hidden">Call Marius</span></a>
-        <button id="lang-ro" class="text-sm font-semibold">🇷🇴 RO</button>
-        <button id="lang-en" class="text-sm font-semibold">🇬🇧 EN</button>
+<body class="relative bg-white">
+  <div class="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-blue-100 to-white -z-10"></div>
+
+  <!-- HEADER FIX -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
+      <a href="#" class="font-bold text-xl text-brand">ALI-DREAM-KIDS</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-gray-700">
+        <a href="#servicii" class="hover:text-brand">Servicii</a>
+        <a href="#galerie" class="hover:text-brand">Galerie</a>
+        <a href="#testimonials" class="hover:text-brand">Testimoniale</a>
+        <a href="#contact" class="hover:text-brand">Contact</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <button onclick="setLang('ro')" class="hover:text-brand">RO</button>
+        <button onclick="setLang('en')" class="hover:text-brand">EN</button>
+        <button id="menuBtn" class="md:hidden text-gray-700 text-2xl">☰</button>
       </div>
-    </nav>
-    <!-- Mobile menu -->
-    <div id="mobileNav" class="md:hidden hidden border-t border-gray-100">
-      <ul class="px-4 py-3 space-y-3 text-sm">
-        <li><a class="block" href="#services"><span data-lang="ro">Servicii</span><span data-lang="en" class="hidden">Services</span></a></li>
-        <li><a class="block" href="#packages"><span data-lang="ro">Pachete</span><span data-lang="en" class="hidden">Packages</span></a></li>
-        <li><a class="block" href="#gallery"><span data-lang="ro">Galerie</span><span data-lang="en" class="hidden">Gallery</span></a></li>
-        <li><a class="block" href="#contact"><span data-lang="ro">Contact</span><span data-lang="en" class="hidden">Contact</span></a></li>
-        <li class="pt-3 grid grid-cols-2 gap-2">
-          <a class="btn-outline text-center" href="tel:+40740222888"><span data-lang="ro">Alina</span><span data-lang="en" class="hidden">Alina</span></a>
-          <a class="btn-outline text-center" href="tel:+40788111112"><span data-lang="ro">Marius</span><span data-lang="en" class="hidden">Marius</span></a>
-        </li>
-      </ul>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200">
+      <nav class="px-4 py-3 flex flex-col gap-3 text-gray-700">
+        <a href="#servicii">Servicii</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#testimonials">Testimoniale</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="section bg-gradient-to-r from-pink-50 to-blue-50">
-      <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
-            <span data-lang="ro">Transformă petrecerea copilului într-o amintire magică</span>
-            <span data-lang="en" class="hidden">Make your child’s party unforgettable</span>
-          </h1>
-          <p class="mt-4 text-lg text-gray-700">
-            <span data-lang="ro">Aducem <strong>pictură pe față</strong>, <strong>modelaj baloane</strong>, <strong>mascote & costume</strong>, <strong>jocuri</strong> și <strong>spectacole</strong> la aniversări, grădinițe și evenimente din <strong>Arad</strong>.</span>
-            <span data-lang="en" class="hidden">We bring <strong>face painting</strong>, <strong>balloon modeling</strong>, <strong>mascots & costumes</strong>, <strong>games</strong> and <strong>shows</strong> to birthdays, kindergartens and events in <strong>Arad</strong>.</span>
-          </p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a href="#packages" class="btn"><span data-lang="ro">Vezi prețuri</span><span data-lang="en" class="hidden">See prices</span></a>
-            <a href="#contact" class="btn-outline"><span data-lang="ro">Rezervă o dată</span><span data-lang="en" class="hidden">Book a date</span></a>
-          </div>
-          <ul class="mt-6 grid grid-cols-2 gap-3 text-sm">
-            <li class="flex items-center gap-2">✅ <span data-lang="ro">Pictură pe față</span><span data-lang="en" class="hidden">Face painting</span></li>
-            <li class="flex items-center gap-2">✅ <span data-lang="ro">Modelaj baloane</span><span data-lang="en" class="hidden">Balloon modeling</span></li>
-            <li class="flex items-center gap-2">✅ <span data-lang="ro">Mascote & costume</span><span data-lang="en" class="hidden">Mascots & costumes</span></li>
-            <li class="flex items-center gap-2">✅ <span data-lang="ro">Jocuri & spectacole</span><span data-lang="en" class="hidden">Games & shows</span></li>
-          </ul>
-        </div>
-        <div>
-          <!-- Replace this with your wide landscape photo: images/hero.jpg -->
-          <img src="images/hero.jpg" alt="Animatori la o petrecere pentru copii" class="rounded-2xl shadow-xl w-full object-cover" />
-        </div>
+  <main class="pt-16">
+
+    <!-- HERO cu gradient doar aici -->
+    <section class="pt-16 pb-16 text-center relative">
+  <div class="max-w-6xl mx-auto px-4 relative z-10">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900">Animatori pentru copii în Arad</h1>
+    <p class="mt-4 text-lg text-gray-600">Face painting, modelaj baloane, mascote și spectacole pentru cele mai frumoase petreceri</p>
+    <div class="mt-6 space-x-4">
+      <a href="#contact" class="bg-brand text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-blue-700">Rezervă acum</a>
+      <a href="#servicii" class="px-6 py-3 rounded-lg font-semibold border border-brand text-brand bg-white hover:bg-gray-100">Vezi servicii</a>
+    </div>
+  </div>
+</section>
+
+    <!-- GALLERY FULL-WIDTH -->
+    <section id="galerie" class="pt-4 pb-0 bg-gray-50">
+  <div class="max-w-full mx-auto px-4">
+    <div class="swiper mySwiper -mt-12">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img1.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 15%;"></div>
+        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img2.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 25%;"></div>
+        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img3.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
+        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img4.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 15%;"></div>
+        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img5.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 28%;"></div>
+        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img6.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 35%;"></div>
+        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img7.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
+        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img8.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
+        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img9.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
+        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img10.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
+        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img11.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
+        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img12.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 10%;"></div>
+        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img13.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 10%;"></div>
+        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img14.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
+        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img15.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 20%;"></div>
       </div>
-    </section>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+</section>
 
     <!-- SERVICES -->
-    <section id="services" class="section">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="section-title"><span data-lang="ro">Ce facem</span><span data-lang="en" class="hidden">What we do</span></h2>
-        <p class="mt-2 text-gray-600"><span data-lang="ro">Combină orice servicii pentru petrecerea perfectă.</span><span data-lang="en" class="hidden">Mix & match services for the perfect party.</span></p>
-        <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <article class="card">
-            <img src="images/picturi-pe-fata/pf1.jpg" alt="Pictură pe față" class="rounded-xl w-full h-40 object-cover" />
-            <h3 class="mt-4 font-bold text-lg"><span data-lang="ro">Pictură pe față</span><span data-lang="en" class="hidden">Face Painting</span></h3>
-            <p class="text-gray-600 text-sm"><span data-lang="ro">Vopsele hipoalergenice, designuri rapide, sclipici.</span><span data-lang="en" class="hidden">Hypoallergenic paints, fast designs, glitter.</span></p>
-          </article>
-          <article class="card">
-            <img src="images/modelaj/m1.jpg" alt="Modelaj baloane" class="rounded-xl w-full h-40 object-cover" />
-            <h3 class="mt-4 font-bold text-lg"><span data-lang="ro">Modelaj baloane</span><span data-lang="en" class="hidden">Balloon Modeling</span></h3>
-            <p class="text-gray-600 text-sm"><span data-lang="ro">Săbii, flori, animale – rămân amintire.</span><span data-lang="en" class="hidden">Swords, flowers, animals—kids take them home.</span></p>
-          </article>
-          <article class="card">
-            <img src="images/costumatii/c1.jpg" alt="Mascote și costume" class="rounded-xl w-full h-40 object-cover" />
-            <h3 class="mt-4 font-bold text-lg"><span data-lang="ro">Mascote & costume</span><span data-lang="en" class="hidden">Mascots & Costumes</span></h3>
-            <p class="text-gray-600 text-sm"><span data-lang="ro">Momente foto cu personajele preferate.</span><span data-lang="en" class="hidden">Photo moments with favorite characters.</span></p>
-          </article>
-          <article class="card">
-            <img src="images/spectacole/s1.jpg" alt="Jocuri și spectacole" class="rounded-xl w-full h-40 object-cover" />
-            <h3 class="mt-4 font-bold text-lg"><span data-lang="ro">Jocuri & spectacole</span><span data-lang="en" class="hidden">Games & Shows</span></h3>
-            <p class="text-gray-600 text-sm"><span data-lang="ro">Jocuri interactive, mini-disco, magie & bule de săpun.</span><span data-lang="en" class="hidden">Interactive games, mini-disco, magic & bubble shows.</span></p>
-          </article>
+    <section id="servicii" class="pt-0 pb-16 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 pt-8">Serviciile noastre</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card"> 
+        <h3 class="text-xl font-semibold mb-2">Picturi pe față</h3>
+        <p class="text-gray-600">Transformăm copiii în eroii lor preferați cu picturi colorate și sigure.</p>
+      </div>
+      <div class="card">
+        <h3 class="text-xl font-semibold mb-2">Modelaj baloane</h3>
+        <p class="text-gray-600">Distracție garantată cu baloane modelate în forme jucăușe și creative.</p>
+      </div>
+      <div class="card">
+        <h3 class="text-xl font-semibold mb-2">Mascote & spectacole</h3>
+        <p class="text-gray-600">Personaje îndrăgite și show-uri interactive pentru întreaga familie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- TESTIMONIALE -->
+    <section id="testimonials" class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-12">Ce spun părinții</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="card">„Copiii s-au distrat de minune! Recomand cu drag.” <br><span class="font-semibold">– Andreea M.</span></div>
+          <div class="card">„Mascotele au fost adorabile și atmosfera perfectă.” <br><span class="font-semibold">– Ioana D.</span></div>
+          <div class="card">„Profesioniști și foarte atenți cu cei mici.” <br><span class="font-semibold">– Mihai P.</span></div>
         </div>
       </div>
     </section>
 
-    <!-- PACKAGES / PRICES -->
-    <section id="packages" class="section bg-gray-50">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="section-title"><span data-lang="ro">Prețuri & Pachete</span><span data-lang="en" class="hidden">Prices & Packages</span></h2>
-        <p class="mt-2 text-gray-600"><span data-lang="ro">Prețuri transparente. Personalizăm la cerere.</span><span data-lang="en" class="hidden">Transparent pricing. Customize on request.</span></p>
-        <div class="mt-8 grid md:grid-cols-3 gap-6">
-          <div class="card">
-            <h3 class="text-xl font-extrabold"><span data-lang="ro">De bază</span><span data-lang="en" class="hidden">Basic</span></h3>
-            <p class="text-gray-600"><span data-lang="ro">1 oră • până la 10 copii</span><span data-lang="en" class="hidden">1 hour • up to 10 kids</span></p>
-            <ul class="mt-4 space-y-2 text-sm">
-              <li><span data-lang="ro">• 1 animator</span><span data-lang="en" class="hidden">• 1 animator</span></li>
-              <li><span data-lang="ro">• Pictură pe față <em>sau</em> baloane</span><span data-lang="en" class="hidden">• Face painting <em>or</em> balloons</span></li>
-              <li><span data-lang="ro">• Timp pentru poze</span><span data-lang="en" class="hidden">• Photo time</span></li>
-            </ul>
-            <p class="mt-4 text-3xl font-extrabold">[price] LEI</p>
-            <a href="#contact" class="btn mt-4 w-full"><span data-lang="ro">Rezervă</span><span data-lang="en" class="hidden">Book</span></a>
-          </div>
-          <div class="card ring-2 ring-brand">
-            <p class="inline-block text-xs font-bold bg-blue-100 text-blue-800 px-2 py-1 rounded-full"><span data-lang="ro">Cel mai popular</span><span data-lang="en" class="hidden">Most popular</span></p>
-            <h3 class="mt-2 text-xl font-extrabold"><span data-lang="ro">Distracție</span><span data-lang="en" class="hidden">Party Fun</span></h3>
-            <p class="text-gray-600"><span data-lang="ro">2 ore • până la 20 copii</span><span data-lang="en" class="hidden">2 hours • up to 20 kids</span></p>
-            <ul class="mt-4 space-y-2 text-sm">
-              <li><span data-lang="ro">• 2 animatori</span><span data-lang="en" class="hidden">• 2 animators</span></li>
-              <li><span data-lang="ro">• Pictură pe față <strong>și</strong> baloane</span><span data-lang="en" class="hidden">• Face painting <strong>and</strong> balloons</span></li>
-              <li><span data-lang="ro">• Jocuri interactive & mini-disco</span><span data-lang="en" class="hidden">• Interactive games & mini-disco</span></li>
-            </ul>
-            <p class="mt-4 text-3xl font-extrabold">[price] LEI</p>
-            <a href="#contact" class="btn mt-4 w-full"><span data-lang="ro">Rezervă</span><span data-lang="en" class="hidden">Book</span></a>
-          </div>
-          <div class="card">
-            <h3 class="text-xl font-extrabold"><span data-lang="ro">Spectacol</span><span data-lang="en" class="hidden">Showtime</span></h3>
-            <p class="text-gray-600"><span data-lang="ro">2–3 ore • până la 25 copii</span><span data-lang="en" class="hidden">2–3 hours • up to 25 kids</span></p>
-            <ul class="mt-4 space-y-2 text-sm">
-              <li><span data-lang="ro">• 2 animatori + mascotă</span><span data-lang="en" class="hidden">• 2 animators + mascot</span></li>
-              <li><span data-lang="ro">• Pictură pe față & baloane</span><span data-lang="en" class="hidden">• Face painting & balloons</span></li>
-              <li><span data-lang="ro">• Magie sau spectacol cu bule</span><span data-lang="en" class="hidden">• Magic or bubble show</span></li>
-            </ul>
-            <p class="mt-4 text-3xl font-extrabold">[price] LEI</p>
-            <a href="#contact" class="btn mt-4 w-full"><span data-lang="ro">Rezervă</span><span data-lang="en" class="hidden">Book</span></a>
-          </div>
-        </div>
-        <p class="mt-3 text-xs text-gray-500"><span data-lang="ro">* Taxă de deplasare poate fi aplicată în afara Aradului. Cere ofertă personalizată.</span><span data-lang="en" class="hidden">* Travel fee may apply outside Arad. Ask for a custom quote.</span></p>
+    <!-- CONTACT / FOOTER -->
+    <section id="contact" class="py-16 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-6">Contact</h2>
+        <p class="mb-2">📞 <strong>Alina Toma:</strong> <a href="tel:+40740222888">0740-222888</a></p>
+        <p class="mb-2">📞 <strong>Marius George:</strong> <a href="tel:+40788111112">0788-111112</a></p>
+        <p class="text-gray-600">Arad, România</p>
+        <p class="mt-4 text-sm text-gray-500">© <span id="year"></span> ALI-DREAM-KIDS. Toate drepturile rezervate.</p>
       </div>
     </section>
 
-    <!-- GALLERY -->
-    <section id="gallery" class="section">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="section-title"><span data-lang="ro">Galerie</span><span data-lang="en" class="hidden">Gallery</span></h2>
-        <p class="mt-2 text-gray-600"><span data-lang="ro">Câteva momente de la evenimentele noastre.</span><span data-lang="en" class="hidden">A few moments from recent events.</span></p>
-
-        <!-- Category: Picturi pe față / Face painting -->
-        <h3 class="mt-8 text-xl font-bold"><span data-lang="ro">Picturi pe față</span><span data-lang="en" class="hidden">Face painting</span></h3>
-        <div class="mt-3 grid grid-cols-2 md:grid-cols-4 gap-3">
-          <a href="images/picturi-pe-fata/pf1.jpg" class="block group"><img loading="lazy" src="images/picturi-pe-fata/pf1.jpg" alt="Galerie picturi pe față" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-          <a href="images/picturi-pe-fata/pf2.jpg" class="block group"><img loading="lazy" src="images/picturi-pe-fata/pf2.jpg" alt="Galerie picturi pe față" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-          <a href="images/picturi-pe-fata/pf3.jpg" class="block group"><img loading="lazy" src="images/picturi-pe-fata/pf3.jpg" alt="Galerie picturi pe față" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-          <a href="images/picturi-pe-fata/pf4.jpg" class="block group"><img loading="lazy" src="images/picturi-pe-fata/pf4.jpg" alt="Galerie picturi pe față" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-        </div>
-
-        <!-- Category: Modelaj baloane / Balloon modeling -->
-        <h3 class="mt-8 text-xl font-bold"><span data-lang="ro">Modelaj baloane</span><span data-lang="en" class="hidden">Balloon modeling</span></h3>
-        <div class="mt-3 grid grid-cols-2 md:grid-cols-4 gap-3">
-          <a href="images/modelaj/m1.jpg" class="block group"><img loading="lazy" src="images/modelaj/m1.jpg" alt="Galerie modelaj baloane" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-          <a href="images/modelaj/m2.jpg" class="block group"><img loading="lazy" src="images/modelaj/m2.jpg" alt="Galerie modelaj baloane" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-          <a href="images/modelaj/m3.jpg" class="block group"><img loading="lazy" src="images/modelaj/m3.jpg" alt="Galerie modelaj baloane" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-          <a href="images/modelaj/m4.jpg" class="block group"><img loading="lazy" src="images/modelaj/m4.jpg" alt="Galerie modelaj baloane" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-        </div>
-
-        <!-- Category: Mascote & costume / Costumes -->
-        <h3 class="mt-8 text-xl font-bold"><span data-lang="ro">Mascote & costume</span><span data-lang="en" class="hidden">Mascots & costumes</span></h3>
-        <div class="mt-3 grid grid-cols-2 md:grid-cols-4 gap-3">
-          <a href="images/costumatii/c1.jpg" class="block group"><img loading="lazy" src="images/costumatii/c1.jpg" alt="Galerie costume" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-          <a href="images/costumatii/c2.jpg" class="block group"><img loading="lazy" src="images/costumatii/c2.jpg" alt="Galerie costume" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-          <a href="images/costumatii/c3.jpg" class="block group"><img loading="lazy" src="images/costumatii/c3.jpg" alt="Galerie costume" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-          <a href="images/costumatii/c4.jpg" class="block group"><img loading="lazy" src="images/costumatii/c4.jpg" alt="Galerie costume" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-        </div>
-
-        <!-- Category: Spectacole / Shows -->
-        <h3 class="mt-8 text-xl font-bold"><span data-lang="ro">Spectacole</span><span data-lang="en" class="hidden">Shows</span></h3>
-        <div class="mt-3 grid grid-cols-2 md:grid-cols-4 gap-3">
-          <a href="images/spectacole/s1.jpg" class="block group"><img loading="lazy" src="images/spectacole/s1.jpg" alt="Galerie spectacole" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-          <a href="images/spectacole/s2.jpg" class="block group"><img loading="lazy" src="images/spectacole/s2.jpg" alt="Galerie spectacole" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-          <a href="images/spectacole/s3.jpg" class="block group"><img loading="lazy" src="images/spectacole/s3.jpg" alt="Galerie spectacole" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-          <a href="images/spectacole/s4.jpg" class="block group"><img loading="lazy" src="images/spectacole/s4.jpg" alt="Galerie spectacole" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-        </div>
-
-        <!-- Category: Moș Crăciun / Santa -->
-        <h3 class="mt-8 text-xl font-bold"><span data-lang="ro">Moș Crăciun</span><span data-lang="en" class="hidden">Santa visits</span></h3>
-        <div class="mt-3 grid grid-cols-2 md:grid-cols-4 gap-3">
-          <a href="images/mos-craciun/x1.jpg" class="block group"><img loading="lazy" src="images/mos-craciun/x1.jpg" alt="Galerie Moș Crăciun" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-          <a href="images/mos-craciun/x2.jpg" class="block group"><img loading="lazy" src="images/mos-craciun/x2.jpg" alt="Galerie Moș Crăciun" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-          <a href="images/mos-craciun/x3.jpg" class="block group"><img loading="lazy" src="images/mos-craciun/x3.jpg" alt="Galerie Moș Crăciun" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-          <a href="images/mos-craciun/x4.jpg" class="block group"><img loading="lazy" src="images/mos-craciun/x4.jpg" alt="Galerie Moș Crăciun" class="rounded-xl object-cover w-full h-44 group-hover:opacity-90" /></a>
-        </div>
-      </div>
-
-      <!-- Lightbox overlay -->
-      <div id="lightbox" class="fixed inset-0 bg-black/80 hidden items-center justify-center p-4">
-        <button id="closeLightbox" class="absolute top-4 right-4 bg-white/90 rounded-full px-3 py-1 text-sm">✕</button>
-        <img id="lightboxImg" src="" alt="Imagine mărită" class="max-h-[85vh] rounded-xl shadow-2xl" />
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section id="testimonials" class="section bg-gray-50">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="section-title"><span data-lang="ro">Părinți fericiți</span><span data-lang="en" class="hidden">Happy parents</span></h2>
-        <div class="mt-8 grid md:grid-cols-3 gap-6">
-          <figure class="card"><blockquote class="text-gray-700"><span data-lang="ro">„Profesioniști și foarte prietenoși. Copiii au adorat picturile pe față!”</span><span data-lang="en" class="hidden">“Professional and super friendly. Kids loved the face painting!”</span></blockquote><figcaption class="mt-3 text-sm font-semibold">— Andreea P.</figcaption></figure>
-          <figure class="card"><blockquote class="text-gray-700"><span data-lang="ro">„Plini de energie, punctuali, iar baloanele au fost atracția serii.”</span><span data-lang="en" class="hidden">“Great energy, punctual, and the balloons were a hit.”</span></blockquote><figcaption class="mt-3 text-sm font-semibold">— Mihai R.</figcaption></figure>
-          <figure class="card"><blockquote class="text-gray-700"><span data-lang="ro">„Cea mai bună alegere pentru ziua fetiței noastre!”</span><span data-lang="en" class="hidden">“Best decision for our daughter’s birthday!”</span></blockquote><figcaption class="mt-3 text-sm font-semibold">— Ioana D.</figcaption></figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="section-title"><span data-lang="ro">Rezervă o dată</span><span data-lang="en" class="hidden">Book your date</span></h2>
-        <p class="mt-2 text-gray-600"><span data-lang="ro">Spune-ne despre eveniment și îți confirmăm disponibilitatea.</span><span data-lang="en" class="hidden">Tell us about your event and we’ll confirm availability.</span></p>
-
-        <div class="mt-6 grid md:grid-cols-3 gap-6">
-          <div class="card">
-            <h3 class="font-bold"><span data-lang="ro">Sună Alina</span><span data-lang="en" class="hidden">Call Alina</span></h3>
-            <a class="mt-2 block text-brand font-semibold" href="tel:+40740222888">0740-222888</a>
-            <a class="mt-2 inline-block btn-outline" href="https://wa.me/40740222888?text=Bună!%20Aș%20dori%20o%20rezervare%20pe%20[data]."><span data-lang="ro">WhatsApp</span><span data-lang="en" class="hidden">WhatsApp</span></a>
-          </div>
-          <div class="card">
-            <h3 class="font-bold"><span data-lang="ro">Sună Marius</span><span data-lang="en" class="hidden">Call Marius</span></h3>
-            <a class="mt-2 block text-brand font-semibold" href="tel:+40788111112">0788-111112</a>
-            <a class="mt-2 inline-block btn-outline" href="https://wa.me/40788111112?text=Bună!%20Aș%20dori%20o%20rezervare%20pe%20[data]."><span data-lang="ro">WhatsApp</span><span data-lang="en" class="hidden">WhatsApp</span></a>
-          </div>
-          <div class="card">
-            <h3 class="font-bold"><span data-lang="ro">Email</span><span data-lang="en" class="hidden">Email</span></h3>
-            <p class="text-sm text-gray-600"><span data-lang="ro">(opțional) Adaugă un email mai târziu</span><span data-lang="en" class="hidden">(optional) Add an email later</span></p>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="border-t border-gray-100">
-    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-3">
-      <p class="text-sm">© <span id="year"></span> ALI-DREAM-KIDS. All rights reserved.</p>
-      <div class="text-xs text-gray-500"><span data-lang="ro">Fără cookie-uri. Respectăm intimitatea ta.</span><span data-lang="en" class="hidden">No cookies. We respect your privacy.</span></div>
-    </div>
-  </footer>
-
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <script>
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileNav = document.getElementById('mobileNav');
-    menuBtn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+    const mobileBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if(mobileBtn && mobileMenu) mobileBtn.addEventListener('click', ()=>mobileMenu.classList.toggle('hidden'));
 
-    // Lightbox
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const closeLightbox = document.getElementById('closeLightbox');
-    document.addEventListener('click', (e) => {
-      const a = e.target.closest('#gallery a');
-      if (!a) return;
-      e.preventDefault();
-      lightboxImg.src = a.href;
-      lightbox.classList.remove('hidden');
+    function setLang(l){ document.documentElement.dataset.lang=l; try{localStorage.setItem('lang',l);}catch(e){} }
+    (function initLang(){ const saved=localStorage.getItem('lang')||'ro'; document.documentElement.dataset.lang=saved; })();
+
+    const swiper = new Swiper('.mySwiper',{
+      loop:true,
+      autoplay:{delay:3000, disableOnInteraction:false},
+      slidesPerView:1,
+      spaceBetween:20,
+      pagination:{el:'.swiper-pagination', clickable:true},
+      navigation:{nextEl:'.swiper-button-next', prevEl:'.swiper-button-prev'},
+      breakpoints:{768:{slidesPerView:2},1024:{slidesPerView:3}}
     });
-    closeLightbox?.addEventListener('click', () => lightbox.classList.add('hidden'));
-    lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.add('hidden') });
 
-    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Language toggle
-    const setLang = (lang) => {
-      document.querySelectorAll('[data-lang]').forEach(el => {
-        el.classList.add('hidden');
-        if (el.dataset.lang === lang) el.classList.remove('hidden');
-      });
-      // Update html lang attribute for accessibility/SEO
-      document.documentElement.lang = lang === 'ro' ? 'ro' : 'en';
-    };
-    document.getElementById('lang-ro').addEventListener('click', () => setLang('ro'));
-    document.getElementById('lang-en').addEventListener('click', () => setLang('en'));
-    setLang('ro');
   </script>
+
 </body>
 </html>
