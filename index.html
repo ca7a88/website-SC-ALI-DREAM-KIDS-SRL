@@ -40,7 +40,7 @@ tailwind.config = {
     </div>
   </div>
 
-  <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200">
+  <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200">
     <nav class="px-4 py-3 flex flex-col gap-3 text-gray-700">
       <a href="#servicii" data-ro="Servicii" data-en="Services">Servicii</a>
       <a href="#galerie" data-ro="Galerie" data-en="Gallery">Galerie</a>
@@ -95,9 +95,7 @@ tailwind.config = {
 <!-- SERVICII -->
 <section id="servicii" class="pt-0 pb-16 bg-gray-50">
   <div class="max-w-6xl mx-auto px-4 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-12 pt-8"> 
-      <span id="servicesTitle"></span>
-    </h2>
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 pt-8"><span id="servicesTitle"></span></h2>
     <div class="grid md:grid-cols-3 gap-8">
       <div class="card">
         <h3 id="service1Title" class="text-xl font-semibold mb-2"></h3>
@@ -142,56 +140,68 @@ tailwind.config = {
 
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script>
+/* SWIPER */
+const swiper = new Swiper('.mySwiper',{
+  loop:true,
+  autoplay:{delay:3000, disableOnInteraction:false},
+  slidesPerView:1,
+  spaceBetween:20,
+  pagination:{el:'.swiper-pagination', clickable:true},
+  navigation:{nextEl:'.swiper-button-next', prevEl:'.swiper-button-prev'},
+  breakpoints:{768:{slidesPerView:2},1024:{slidesPerView:3}}
+});
+
+/* LIMBA */
 const texts = {
   ro: {
-    heroTitle: "Animatori pentru copii în Arad",
-    heroDesc: "Face painting, modelaj baloane, mascote și spectacole pentru cele mai frumoase petreceri",
-    btnReserve: "Rezervă acum",
-    btnServices: "Vezi servicii",
-    servicesTitle: "Serviciile noastre",
-    services: [
-      { title: "Picturi pe față", desc: "Transformăm copiii în eroii lor preferați cu picturi colorate și sigure." },
-      { title: "Modelaj baloane", desc: "Distracție garantată cu baloane modelate în forme jucăușe și creative." },
-      { title: "Mascote & spectacole", desc: "Personaje îndrăgite și show-uri interactive pentru întreaga familie." }
+    heroTitle:"Animatori pentru copii în Arad",
+    heroDesc:"Face painting, modelaj baloane, mascote și spectacole pentru cele mai frumoase petreceri",
+    btnReserve:"Rezervă acum",
+    btnServices:"Vezi servicii",
+    servicesTitle:"Serviciile noastre",
+    services:[
+      {title:"Picturi pe față", desc:"Transformăm copiii în eroii lor preferați cu picturi colorate și sigure."},
+      {title:"Modelaj baloane", desc:"Distracție garantată cu baloane modelate în forme jucăușe și creative."},
+      {title:"Mascote & spectacole", desc:"Personaje îndrăgite și show-uri interactive pentru întreaga familie."}
     ],
-    testimonialsTitle: "Ce spun părinții",
-    testimonials: [
+    testimonialsTitle:"Ce spun părinții",
+    testimonials:[
       "Copiii s-au distrat de minune! Recomand cu drag. – Andreea M.",
       "Mascotele au fost adorabile și atmosfera perfectă. – Ioana D.",
       "Profesioniști și foarte atenți cu cei mici. – Mihai P."
     ],
-    contact: {
-      title: "Contact",
-      alina: "📞 Alina Toma: 0740-222888",
-      marius: "📞 Marius George: 0788-111112",
-      location: "Arad, România"
+    contact:{
+      title:"Contact",
+      alina:"📞 Alina Toma: 0740-222888",
+      marius:"📞 Marius George: 0788-111112",
+      location:"Arad, România"
     },
-    footer: "© ALI-DREAM-KIDS. Toate drepturile rezervate."
+    footer:"© ALI-DREAM-KIDS. Toate drepturile rezervate."
   },
   en: {
-    heroTitle: "Kids Entertainers in Arad",
-    heroDesc: "Face painting, balloon modeling, mascots and shows for the best parties",
-    btnReserve: "Book now",
-    btnServices: "See services",
-    servicesTitle: "Our Services",
-    services: [
-      { title: "Face Painting", desc: "We transform children into their favorite heroes with colorful and safe face painting." },
-      { title: "Balloon Modeling", desc: "Guaranteed fun with balloons shaped in playful and creative forms." },
-      { title: "Mascots & Shows", desc: "Beloved characters and interactive shows for the whole family." }
+    heroTitle:"Kids Entertainers in Arad",
+    heroDesc:"Face painting, balloon modeling, mascots and shows for the best parties",
+    btnReserve:"Book now",
+    btnServices:"See services",
+    servicesTitle:"Our Services",
+    services:[
+      {title:"Face Painting", desc:"We transform children into their favorite heroes with colorful and safe face painting."},
+      {title:"Balloon Modeling", desc:"Guaranteed fun with balloons shaped in playful and creative forms."},
+      {title:"Mascots & Shows", desc:"Beloved characters and interactive shows for the whole family."}
     ],
-    testimonialsTitle: "What Parents Say",
-    testimonials: [
+    testimonialsTitle:"What Parents Say",
+    testimonials:[
       "The kids had a blast! Highly recommend. – Andreea M.",
       "The mascots were adorable and the atmosphere was perfect. – Ioana D.",
       "Professional and very attentive with the little ones. – Mihai P."
     ],
-    contact: {
-      title: "Contact",
-      alina: "📞 Alina Toma: 0740-222888",
-      marius: "📞 Marius George: 0788-111112",
-      location: "Arad, Romania"
+    contact:{
+      title:"Contact",
+      alina:"📞 Alina Toma: 0740-222888",
+      marius:"📞 Marius George: 0788-111112",
+      location:"Arad, Romania"
     },
-    footer: "© ALI-DREAM-KIDS. All rights reserved."
+    footer:"© ALI-DREAM-KIDS. All rights reserved."
   }
 };
 
@@ -220,34 +230,30 @@ function updateLang(lang){
 }
 
 function updateNavbarLang(lang){
-  document.querySelectorAll('nav a[data-ro]').forEach(el => {
-    el.textContent = lang === 'ro' ? el.dataset.ro : el.dataset.en;
+  document.querySelectorAll('nav a[data-ro]').forEach(el=>{
+    el.textContent = lang==='ro'? el.dataset.ro : el.dataset.en;
   });
 }
 
 function setLang(l){
   document.documentElement.dataset.lang = l;
-  try{ localStorage.setItem('lang',l); } catch(e){}
+  try{ localStorage.setItem('lang',l);} catch(e){}
   updateLang(l);
   updateNavbarLang(l);
 }
 
-(function initLang(){
+/* INIT */
+(function(){
   const saved = localStorage.getItem('lang') || 'ro';
   document.documentElement.dataset.lang = saved;
   updateLang(saved);
   updateNavbarLang(saved);
 })();
 
-const swiper = new Swiper('.mySwiper',{
-  loop:true,
-  autoplay:{delay:3000, disableOnInteraction:false},
-  slidesPerView:1,
-  spaceBetween:20,
-  pagination:{el:'.swiper-pagination', clickable:true},
-  navigation:{nextEl:'.swiper-button-next', prevEl:'.swiper-button-prev'},
-  breakpoints:{768:{slidesPerView:2},1024:{slidesPerView:3}}
-});
+/* MENIU MOBIL */
+const mobileBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+mobileBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'));
 </script>
 
 </body>
