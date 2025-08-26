@@ -121,7 +121,7 @@ html {
   /* increase spacing between stacked service cards */
   .grid {
     grid-template-columns: 1fr; /* stack cards vertically */
-    row-gap: 3rem; /* more space between stacked cards */
+    row-gap: 10rem; /* more space between stacked cards */
   }
 
   /* adjust Spider-Man hero image */
