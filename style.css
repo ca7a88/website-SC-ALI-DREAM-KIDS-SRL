@@ -137,7 +137,7 @@ html {
 
   /* add spacing between card containers to account for floating images */
   #servicii .card-container {
-    margin-bottom: 8rem; /* adjust as needed for more/less space */
+    margin-bottom: 15rem; /* adjust as needed for more/less space */
   }
 }
 
