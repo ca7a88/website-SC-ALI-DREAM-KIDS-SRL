@@ -113,8 +113,25 @@ html {
 
 /* Responsive cards */
 @media (max-width: 768px) {
+  /* existing card padding */
   .card {
     padding: 1.25rem;
+  }
+
+  /* increase spacing between stacked service cards */
+  .grid {
+    grid-template-columns: 1fr; /* stack cards vertically */
+    row-gap: 3rem; /* more space between stacked cards */
+  }
+
+  /* adjust Spider-Man hero image */
+  .spiderman-hero {
+    width: 150px;        /* smaller */
+    top: -20px;          /* move up */
+    right: -20px;        /* move sideways */
+    transform: rotate(0deg);
+    z-index: 10;         /* behind hero content */
+    opacity: 0.3;        /* semi-transparent */
   }
 }
 
