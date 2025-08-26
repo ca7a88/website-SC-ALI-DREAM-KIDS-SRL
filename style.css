@@ -118,10 +118,11 @@ html {
     padding: 1.25rem;
   }
 
-  /* increase spacing between stacked service cards */
+  /* stack cards vertically */
   .grid {
-    grid-template-columns: 1fr; /* stack cards vertically */
-    row-gap: 10rem; /* more space between stacked cards */
+    grid-template-columns: 1fr;
+    /* row-gap is not enough because of absolute images */
+    row-gap: 0; 
   }
 
   /* adjust Spider-Man hero image */
@@ -132,6 +133,11 @@ html {
     transform: rotate(0deg);
     z-index: 10;         /* behind hero content */
     opacity: 0.3;        /* semi-transparent */
+  }
+
+  /* add spacing between card containers to account for floating images */
+  #servicii .card-container {
+    margin-bottom: 8rem; /* adjust as needed for more/less space */
   }
 }
 
