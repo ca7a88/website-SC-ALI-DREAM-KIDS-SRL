@@ -1,276 +1,208 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ALI-DREAM-KIDS • Animatori pentru copii în Arad</title>
-<link rel="icon" href="favicon.ico">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: { brand: { DEFAULT: '#2563eb', light: '#93c5fd' } }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MASCOTE-ARAD • Animatori pentru copii în Arad</title>
+  <meta name="description" content="MASCOTE-ARAD - Animatori pentru copii în Arad: picturi pe față, modelaj baloane, mascote și spectacole pentru petreceri reușite.">
+  <link rel="icon" href="favicon.ico">
+
+  <!-- Fonts + Tailwind -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Nunito', 'sans-serif'],
+            heading: ['Poppins', 'sans-serif']
+          },
+          colors: {
+            brand: { DEFAULT: '#2563eb', light: '#93c5fd' }
+          }
+        }
+      }
     }
-  }
-}
-</script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
-<link rel="stylesheet" href="style.css">
+  </script>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="relative bg-white">
+<body class="relative text-gray-800">
 
-<div class="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-blue-100 to-white -z-10"></div>
+  <!-- Decorative gradient (full page) -->
+  <div class="absolute top-0 left-0 w-full h-full -z-10 bg-gradient-to-b from-blue-200 via-pink-200 to-yellow-100"></div>
 
-<!-- HEADER FIX -->
-<header class="fixed top-0 left-0 w-full z-50 bg-white shadow-lg">
-  <div class="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
-    <a href="#" class="font-bold text-xl text-brand">ALI-DREAM-KIDS</a>
-    <nav class="hidden md:flex items-center gap-6 text-sm text-gray-700">
-      <a href="#servicii" data-ro="Servicii" data-en="Services">Servicii</a>
-      <a href="#galerie" data-ro="Galerie" data-en="Gallery">Galerie</a>
-      <a href="#testimonials" data-ro="Testimoniale" data-en="Testimonials">Testimoniale</a>
-      <a href="#contact" data-ro="Contact" data-en="Contact">Contact</a>
-    </nav>
-    <div class="flex items-center gap-2">
-      <button onclick="setLang('ro')" class="hover:text-brand">RO</button>
-      <button onclick="setLang('en')" class="hover:text-brand">EN</button>
-      <button id="menuBtn" class="md:hidden text-gray-700 text-2xl">☰</button>
-    </div>
-  </div>
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full z-50 shadow-lg transition-shadow">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
+      <a href="#" class="font-bold text-xl text-white">MASCOTE-ARAD</a>
 
-  <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200">
-    <nav class="px-4 py-3 flex flex-col gap-3 text-gray-700">
-      <a href="#servicii" data-ro="Servicii" data-en="Services">Servicii</a>
-      <a href="#galerie" data-ro="Galerie" data-en="Gallery">Galerie</a>
-      <a href="#testimonials" data-ro="Testimoniale" data-en="Testimonials">Testimoniale</a>
-      <a href="#contact" data-ro="Contact" data-en="Contact">Contact</a>
-    </nav>
-  </div>
-</header>
+      <nav class="hidden md:flex items-center gap-4 text-sm" aria-label="Main navigation">
+        <a href="#servicii" data-ro="Servicii" data-en="Services">Servicii</a>
+        <a href="#galerie" data-ro="Galerie" data-en="Gallery">Galerie</a>
+        <a href="#testimonials" data-ro="Testimoniale" data-en="Testimonials">Testimoniale</a>
+        <a href="#contact" data-ro="Contact" data-en="Contact">Contact</a>
+      </nav>
 
-<main class="pt-16">
-
-<!-- HERO -->
-<section class="pt-16 pb-16 text-center relative">
-  <div class="max-w-6xl mx-auto px-4 relative z-10">
-    <h1 id="heroTitle" class="text-4xl md:text-5xl font-extrabold text-gray-900"></h1>
-    <p id="heroDesc" class="mt-4 text-lg text-gray-600"></p>
-    <div class="mt-6 space-x-4">
-      <a id="btnReserve" href="#contact" class="bg-brand text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-blue-700"></a>
-      <a id="btnServices" href="#servicii" class="px-6 py-3 rounded-lg font-semibold border border-brand text-brand bg-white hover:bg-gray-100"></a>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY FULL-WIDTH -->
-    <section id="galerie" class="pt-4 pb-0 bg-gray-50">
-  <div class="max-w-full mx-auto px-4">
-    <div class="swiper mySwiper -mt-12">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img1.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 15%;"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img2.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 25%;"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img3.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img4.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 15%;"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img5.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 28%;"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img6.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 35%;"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img7.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img8.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img9.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img10.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img11.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img12.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 10%;"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img13.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 10%;"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img14.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img15.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 20%;"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/modelaj/modelaj img1.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 12%;"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/modelaj/modelaj img2.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 5%;"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/modelaj/modelaj img3.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 18%;"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/mos craciun/mos craciun img1.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/mos craciun/mos craciun img2.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/mos craciun/mos craciun img3.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/mos craciun/mos craciun img4.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/mos craciun/mos craciun img5.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/mos craciun/mos craciun img6.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 10%;"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/picturi pe fata/picturi pe fata img1.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 80%;"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/picturi pe fata/picturi pe fata img2.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 70%;"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/picturi pe fata/picturi pe fata img3.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 60%;"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/picturi pe fata/picturi pe fata img4.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/picturi pe fata/picturi pe fata img5.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 80%;"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/picturi pe fata/picturi pe fata img6.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position: center 60%;"></div>
-        <div class="swiper-slide"><img src="images/poze evenimente/spectacole/spectacole img1.jpg" class="w-full h-[300px] object-cover rounded-xl shadow-lg"></div>
-      </div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICII -->
-<section id="servicii" class="pt-0 pb-16 bg-gray-50">
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-12 pt-8"><span id="servicesTitle"></span></h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="card">
-        <h3 id="service1Title" class="text-xl font-semibold mb-2"></h3>
-        <p id="service1Desc" class="text-gray-600"></p>
-      </div>
-      <div class="card">
-        <h3 id="service2Title" class="text-xl font-semibold mb-2"></h3>
-        <p id="service2Desc" class="text-gray-600"></p>
-      </div>
-      <div class="card">
-        <h3 id="service3Title" class="text-xl font-semibold mb-2"></h3>
-        <p id="service3Desc" class="text-gray-600"></p>
+      <div class="flex items-center gap-3">
+        <button id="langRoBtn" aria-label="Română" class="hover:text-white">RO</button>
+        <button id="langEnBtn" aria-label="English" class="hover:text-white">EN</button>
+        <button id="menuBtn" aria-label="Deschide meniul" class="md:hidden text-white text-2xl">☰</button>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- TESTIMONIALE -->
-<section id="testimonials" class="py-16 bg-white">
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <h2 class="text-3xl font-bold mb-12" id="testimonialsTitle"></h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div id="testimonial1" class="card"></div>
-      <div id="testimonial2" class="card"></div>
-      <div id="testimonial3" class="card"></div>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200">
+      <nav class="px-4 py-3 flex flex-col gap-3" aria-label="Mobile navigation">
+        <a href="#servicii" data-ro="Servicii" data-en="Services">Servicii</a>
+        <a href="#galerie" data-ro="Galerie" data-en="Gallery">Galerie</a>
+        <a href="#testimonials" data-ro="Testimoniale" data-en="Testimonials">Testimoniale</a>
+        <a href="#contact" data-ro="Contact" data-en="Contact">Contact</a>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- CONTACT -->
-<section id="contact" class="py-16 bg-gray-50">
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <h2 id="contactTitle" class="text-3xl font-bold mb-6"></h2>
-    <p id="contactAlina" class="mb-2"></p>
-    <p id="contactMarius" class="mb-2"></p>
-    <p id="contactLocation" class="text-gray-600"></p>
-    <p class="mt-4 text-sm text-gray-500" id="footerText"></p>
-  </div>
-</section>
+  <main class="pt-16">
 
-</main>
+    <!-- HERO -->
+    <section class="pt-16 pb-16 text-center relative">
+      <div class="max-w-6xl mx-auto px-4 relative z-10">
+        <h1 id="heroTitle" class="text-4xl md:text-5xl font-heading font-extrabold text-gray-900"></h1>
+        <p id="heroDesc" class="mt-4 text-lg text-gray-700"></p>
+        <div class="mt-6 space-x-4">
+          <a id="btnReserve" href="#contact" class="btn"></a>
+          <a id="btnServices" href="#servicii" class="btn-outline"></a>
+        </div>
+      </div>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<script>
-/* SWIPER */
-const swiper = new Swiper('.mySwiper',{
-  loop:true,
-  autoplay:{delay:3000, disableOnInteraction:false},
-  slidesPerView:1,
-  spaceBetween:20,
-  pagination:{el:'.swiper-pagination', clickable:true},
-  navigation:{nextEl:'.swiper-button-next', prevEl:'.swiper-button-prev'},
-  breakpoints:{768:{slidesPerView:2},1024:{slidesPerView:3}}
-});
+      <!-- Spider-Man decoration -->
+      <img src="images/spiderman.png" alt="Spider-Man" class="spiderman-hero">
+    </section>
 
-/* LIMBA */
-const texts = {
-  ro: {
-    heroTitle:"Animatori pentru copii în Arad",
-    heroDesc:"Face painting, modelaj baloane, mascote și spectacole pentru cele mai frumoase petreceri",
-    btnReserve:"Rezervă acum",
-    btnServices:"Vezi servicii",
-    servicesTitle:"Serviciile noastre",
-    services:[
-      {title:"Picturi pe față", desc:"Transformăm copiii în eroii lor preferați cu picturi colorate și sigure."},
-      {title:"Modelaj baloane", desc:"Distracție garantată cu baloane modelate în forme jucăușe și creative."},
-      {title:"Mascote & spectacole", desc:"Personaje îndrăgite și show-uri interactive pentru întreaga familie."}
-    ],
-    testimonialsTitle:"Ce spun părinții",
-    testimonials:[
-      "Copiii s-au distrat de minune! Recomand cu drag. – Andreea M.",
-      "Mascotele au fost adorabile și atmosfera perfectă. – Ioana D.",
-      "Profesioniști și foarte atenți cu cei mici. – Mihai P."
-    ],
-    contact:{
-      title:"Contact",
-      alina:"📞 Alina Toma: 0740-222888",
-      marius:"📞 Marius George: 0788-111112",
-      location:"Arad, România"
-    },
-    footer:"© ALI-DREAM-KIDS. Toate drepturile rezervate."
-  },
-  en: {
-    heroTitle:"Kids Entertainers in Arad",
-    heroDesc:"Face painting, balloon modeling, mascots and shows for the best parties",
-    btnReserve:"Book now",
-    btnServices:"See services",
-    servicesTitle:"Our Services",
-    services:[
-      {title:"Face Painting", desc:"We transform children into their favorite heroes with colorful and safe face painting."},
-      {title:"Balloon Modeling", desc:"Guaranteed fun with balloons shaped in playful and creative forms."},
-      {title:"Mascots & Shows", desc:"Beloved characters and interactive shows for the whole family."}
-    ],
-    testimonialsTitle:"What Parents Say",
-    testimonials:[
-      "The kids had a blast! Highly recommend. – Andreea M.",
-      "The mascots were adorable and the atmosphere was perfect. – Ioana D.",
-      "Professional and very attentive with the little ones. – Mihai P."
-    ],
-    contact:{
-      title:"Contact",
-      alina:"📞 Alina Toma: 0740-222888",
-      marius:"📞 Marius George: 0788-111112",
-      location:"Arad, Romania"
-    },
-    footer:"© ALI-DREAM-KIDS. All rights reserved."
-  }
-};
+    <!-- GALLERY FULL-WIDTH -->
+    <section id="galerie" class="pt-4 pb-0">
+      <div class="max-w-full mx-auto px-4">
+        <div class="swiper mySwiper -mt-12">
+          <div class="swiper-wrapper">
 
-function updateLang(lang){
-  document.getElementById('heroTitle').textContent = texts[lang].heroTitle;
-  document.getElementById('heroDesc').textContent = texts[lang].heroDesc;
-  document.getElementById('btnReserve').textContent = texts[lang].btnReserve;
-  document.getElementById('btnServices').textContent = texts[lang].btnServices;
+            <!-- COSTUMATII (15 images) -->
+            <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img1.jpg" alt="Costum animatori copii" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position:center 15%;" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img2.jpg" alt="Costum petrecere copii" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position:center 25%;" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img3.jpg" alt="Costum animatori" class="w-full h-[300px] object-cover rounded-xl shadow-lg" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img4.jpg" alt="Mascote copii Arad" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position:center 15%;" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img5.jpg" alt="Animatori mascote" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position:center 28%;" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img6.jpg" alt="Costum carnaval copii" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position:center 35%;" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img7.jpg" alt="Animatori evenimente" class="w-full h-[300px] object-cover rounded-xl shadow-lg" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img8.jpg" alt="Petreceri copii Arad" class="w-full h-[300px] object-cover rounded-xl shadow-lg" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img9.jpg" alt="Costum pentru copii" class="w-full h-[300px] object-cover rounded-xl shadow-lg" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img10.jpg" alt="Costum animatori Arad" class="w-full h-[300px] object-cover rounded-xl shadow-lg" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img11.jpg" alt="Costum petrecere copii" class="w-full h-[300px] object-cover rounded-xl shadow-lg" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img12.jpg" alt="Costum colorat animatori" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position:center 10%;" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img13.jpg" alt="Animatori costum festiv" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position:center 10%;" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img14.jpg" alt="Costum animatori petrecere" class="w-full h-[300px] object-cover rounded-xl shadow-lg" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/costumatii/costumatii img15.jpg" alt="Costum carnaval Arad" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position:center 20%;" loading="lazy"></div>
 
-  document.getElementById('servicesTitle').textContent = texts[lang].servicesTitle;
-  texts[lang].services.forEach((s,i)=>{
-    document.getElementById(`service${i+1}Title`).textContent = s.title;
-    document.getElementById(`service${i+1}Desc`).textContent = s.desc;
-  });
+            <!-- MODELAJ -->
+            <div class="swiper-slide"><img src="images/poze evenimente/modelaj/modelaj img1.jpg" alt="Modelaj baloane copii" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position:center 12%;" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/modelaj/modelaj img2.jpg" alt="Baloane modelate" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position:center 5%;" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/modelaj/modelaj img3.jpg" alt="Distracție baloane copii" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position:center 18%;" loading="lazy"></div>
 
-  document.getElementById('testimonialsTitle').textContent = texts[lang].testimonialsTitle;
-  texts[lang].testimonials.forEach((t,i)=>{
-    document.getElementById(`testimonial${i+1}`).textContent = t;
-  });
+            <!-- MOS CRACIUN -->
+            <div class="swiper-slide"><img src="images/poze evenimente/mos craciun/mos craciun img1.jpg" alt="Moș Crăciun la petrecere" class="w-full h-[300px] object-cover rounded-xl shadow-lg" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/mos craciun/mos craciun img2.jpg" alt="Moș Crăciun pentru copii" class="w-full h-[300px] object-cover rounded-xl shadow-lg" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/mos craciun/mos craciun img3.jpg" alt="Întâlnire Moș Crăciun" class="w-full h-[300px] object-cover rounded-xl shadow-lg" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/mos craciun/mos craciun img4.jpg" alt="Moș Crăciun Arad" class="w-full h-[300px] object-cover rounded-xl shadow-lg" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/mos craciun/mos craciun img5.jpg" alt="Crăciun petrecere copii" class="w-full h-[300px] object-cover rounded-xl shadow-lg" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/mos craciun/mos craciun img6.jpg" alt="Moș Crăciun animatori" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position:center 10%;" loading="lazy"></div>
 
-  document.getElementById('contactTitle').textContent = texts[lang].contact.title;
-  document.getElementById('contactAlina').textContent = texts[lang].contact.alina;
-  document.getElementById('contactMarius').textContent = texts[lang].contact.marius;
-  document.getElementById('contactLocation').textContent = texts[lang].contact.location;
-  document.getElementById('footerText').textContent = texts[lang].footer;
-}
+            <!-- PICTURI PE FATA -->
+            <div class="swiper-slide"><img src="images/poze evenimente/picturi pe fata/picturi pe fata img1.jpg" alt="Face painting copii" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position:center 80%;" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/picturi pe fata/picturi pe fata img2.jpg" alt="Pictură pe față copil" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position:center 70%;" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/picturi pe fata/picturi pe fata img3.jpg" alt="Picturi creative copii" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position:center 60%;" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/picturi pe fata/picturi pe fata img4.jpg" alt="Desene pe față" class="w-full h-[300px] object-cover rounded-xl shadow-lg" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/picturi pe fata/picturi pe fata img5.jpg" alt="Face painting Arad" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position:center 80%;" loading="lazy"></div>
+            <div class="swiper-slide"><img src="images/poze evenimente/picturi pe fata/picturi pe fata img6.jpg" alt="Animatori picturi pe față" class="w-full h-[300px] object-cover rounded-xl shadow-lg" style="object-position:center 60%;" loading="lazy"></div>
 
-function updateNavbarLang(lang){
-  document.querySelectorAll('nav a[data-ro]').forEach(el=>{
-    el.textContent = lang==='ro'? el.dataset.ro : el.dataset.en;
-  });
-}
+            <!-- SPECTACOLE -->
+            <div class="swiper-slide"><img src="images/poze evenimente/spectacole/spectacole img1.jpg" alt="Spectacol animatori copii" class="w-full h-[300px] object-cover rounded-xl shadow-lg" loading="lazy"></div>
 
-function setLang(l){
-  document.documentElement.dataset.lang = l;
-  try{ localStorage.setItem('lang',l);} catch(e){}
-  updateLang(l);
-  updateNavbarLang(l);
-}
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next" aria-label="Next slide"></div>
+          <div class="swiper-button-prev" aria-label="Previous slide"></div>
+        </div>
+      </div>
+    </section>
 
-/* INIT */
-(function(){
-  const saved = localStorage.getItem('lang') || 'ro';
-  document.documentElement.dataset.lang = saved;
-  updateLang(saved);
-  updateNavbarLang(saved);
-})();
+    <section id="servicii" class="pt-0 pb-16">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 pt-8"><span id="servicesTitle"></span></h2>
+        <div class="grid md:grid-cols-3 gap-8">
 
-/* MENIU MOBIL */
-const mobileBtn = document.getElementById('menuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-mobileBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'));
-</script>
+          <!-- First Card with facepainting-->
+          <div class="card-container relative">
+            <div class="card">
+              <h3 id="service1Title" class="text-xl font-semibold mb-2"></h3>
+              <p id="service1Desc" class="text-gray-600"></p>
+            </div>
+            <img src="images/facepainting.png" alt="Facepainting" class="facepainting">
+          </div>
 
+          <!-- Second Card with Cat behind -->
+          <div class="card-container relative">
+            <div class="card relative z-10">
+              <h3 id="service2Title" class="text-xl font-semibold mb-2"></h3>
+              <p id="service2Desc" class="text-gray-600"></p>
+            </div>
+            <img src="images/cat.png" alt="Cat" class="cat-img">
+          </div>
+
+          <!-- Third Card with Stitch -->
+          <div class="card-container relative">
+            <div class="card relative z-10">
+              <h3 id="service3Title" class="text-xl font-semibold mb-2"></h3>
+              <p id="service3Desc" class="text-gray-600"></p>
+            </div>
+            <img src="images/stitch.png" alt="Stitch" class="stitch-img">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TESTIMONIALE -->
+    <section id="testimonials" class="py-16">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-heading font-bold mb-12" id="testimonialsTitle"></h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div id="testimonial1" class="card"></div>
+          <div id="testimonial2" class="card"></div>
+          <div id="testimonial3" class="card"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-16">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <h2 id="contactTitle" class="text-3xl font-heading font-bold mb-6"></h2>
+        <p id="contactAlina" class="mb-2"></p>
+        <p id="contactMarius" class="mb-2"></p>
+        <p id="contactLocation" class="text-gray-600"></p>
+        <p class="mt-4 text-sm text-gray-500" id="footerText"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Swiper JS + App JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

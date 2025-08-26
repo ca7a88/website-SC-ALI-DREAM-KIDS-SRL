@@ -1,17 +1,85 @@
+/* Fonts */
 body {
   font-family: 'Nunito', sans-serif;
+  background: linear-gradient(to bottom, #bfdbfe, #fbcfe8, #fef3c7);
+  min-height: 100vh;
   color: #333;
-  background: #f9fafb;
   line-height: 1.6;
 }
 
+/* Headings */
 h1,h2,h3,h4 {
   font-family: 'Poppins', sans-serif;
   color: #111827;
 }
 
-header { transition: box-shadow 0.3s ease; }
+/* Navbar - Blue vibe */
+header {
+  background-color: #3b82f6; /* playful blue */
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
 
+nav a, #mobileMenu a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+nav a:hover, #mobileMenu a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Hero Buttons - playful gradient and accent */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  background-color: white;
+  color: #3b82f6;
+  border: 2px solid #3b82f6;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background-color: #e0f2fe;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+}
+
+/* Card component */
 .card {
   background: white;
   border-radius: 1rem;
@@ -20,20 +88,118 @@ header { transition: box-shadow 0.3s ease; }
   border: 1px solid #e5e7eb;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-.btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 0.75rem; padding: 0.75rem 1.25rem; font-weight: 600; background-color: #2563eb; color: white; border: none; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; }
-.btn:hover { background-color: #1e40af; transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
-.btn-outline { display: inline-flex; align-items: center; justify-content: center; border-radius: 0.75rem; padding: 0.75rem 1.25rem; font-weight: 600; background-color: white; color: #2563eb; border: 2px solid #93c5fd; cursor: pointer; transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; }
-.btn-outline:hover { border-color: #2563eb; background-color: #f0f9ff; transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0,0,0,0.05); }
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.08);
+}
 
-.swiper { width: 100%; }
-.swiper-slide img { border-radius: 1rem; box-shadow: 0 5px 10px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.swiper-slide img:hover { transform: scale(1.05); box-shadow: 0 15px 25px rgba(0,0,0,0.15); }
+/* Swiper images */
+.swiper-slide img {
+  border-radius: 1rem;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-@media (max-width: 768px) { .card { padding: 1.25rem; } }
+.swiper-slide img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+}
 
-footer { font-size: 0.875rem; color: #6b7280; text-align: center; }
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
 
-a { text-decoration: none; }
-a:hover { text-decoration: underline; }
+/* Responsive cards */
+@media (max-width: 768px) {
+  .card {
+    padding: 1.25rem;
+  }
+}
+
+/* Footer text */
+#footerText, footer p {
+  font-size: 0.875rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* Anchor tags */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Spider-Man floating in top corner */
+.spiderman {
+  position: fixed;
+  top: 0;
+  right: 0; /* or left: 0; if you want left corner */
+  width: 120px; /* adjust size */
+  z-index: 50; /* above most content */
+  pointer-events: none; /* so it doesn't block clicks */
+  transform: rotate(-10deg); /* slight angle for dynamic look */
+  animation: swing 4s ease-in-out infinite alternate;
+}
+
+/* Spider-Man in hero section, right edge */
+.spiderman-hero {
+  position: absolute;
+  top: 10px;        /* lower down from top */
+  right: -10px;
+  width: 250px;     /* bigger size */
+  z-index: 20;      /* above hero content */
+  pointer-events: none; 
+  transform: rotate(0.7deg); /* tilt to the right */
+  animation: swing-hero 4s ease-in-out infinite alternate;
+}
+
+.card-container {
+  position: relative; /* container for the card and absolute images */
+}
+
+.card {
+  position: relative;  /* ensures it sits above absolute images */
+  z-index: 20;         /* higher than floating images */
+}
+
+.facepainting {
+  position: absolute;
+  top: -7.8rem;       /* adjust vertical position */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20rem;
+  z-index: 5;         /* behind the card */
+  pointer-events: none;
+}
+
+.cat-img {
+  position: absolute;
+  top: -3rem;         
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10rem;
+  z-index: 5;        /* behind the card, but above facepainting */
+  pointer-events: none;
+  animation: float-cat 5s ease-in-out infinite alternate;
+}
+
+.stitch-img {
+  position: absolute;
+  top: -8.3rem;      
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10rem;
+  z-index: 30;        /* above card */
+}
+
+/* Float animation for the cat */
+@keyframes float-cat {
+  0%   { transform: translateX(-50%) translateY(0); }
+  50%  { transform: translateX(-50%) translateY(-130px); }
+  100% { transform: translateX(-50%) translateY(0); }
+}
