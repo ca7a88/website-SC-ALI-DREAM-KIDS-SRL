@@ -113,33 +113,23 @@ html {
 
 /* Responsive cards */
 @media (max-width: 768px) {
-  /* existing card padding */
-  .card {
-    padding: 1.25rem;
-  }
-
-  /* stack cards vertically */
   .grid {
-    grid-template-columns: 1fr;
-    /* row-gap is not enough because of absolute images */
-    row-gap: 0; 
+    grid-template-columns: 1fr; /* stack cards vertically */
+    row-gap: 0; /* we will handle spacing via card-container */
   }
 
-  /* adjust Spider-Man hero image */
-  .spiderman-hero {
-    width: 150px;        /* smaller */
-    top: -20px;          /* move up */
-    right: -20px;        /* move sideways */
-    transform: rotate(0deg);
-    z-index: 10;         /* behind hero content */
-    opacity: 0.3;        /* semi-transparent */
-  }
-
-  /* add spacing between card containers to account for floating images */
+  /* make card containers take full width and add spacing */
   #servicii .card-container {
-    margin-bottom: 15rem; /* adjust as needed for more/less space */
+    display: block;   /* ensure each container is treated as a block */
+    margin-bottom: 15rem; /* spacing including floating images */
+  }
+
+  /* remove last margin */
+  #servicii .card-container:last-child {
+    margin-bottom: 0;
   }
 }
+
 
 /* Footer text */
 #footerText, footer p {
