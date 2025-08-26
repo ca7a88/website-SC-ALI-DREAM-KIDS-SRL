@@ -119,7 +119,7 @@ html {
 
   /* Give extra space to each card container */
   #servicii .card-container {
-    padding-bottom: 15rem; /* ensures enough space for the floating image */
+    padding-bottom: 5rem; /* ensures enough space for the floating image */
   }
 
   /* Optional: remove extra space from last card */
