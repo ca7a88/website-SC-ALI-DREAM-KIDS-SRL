@@ -113,22 +113,21 @@ html {
 
 /* Responsive cards */
 @media (max-width: 768px) {
-  .grid {
+  #servicii .grid {
     grid-template-columns: 1fr; /* stack cards vertically */
-    row-gap: 0; /* we will handle spacing via card-container */
   }
 
-  /* make card containers take full width and add spacing */
+  /* Give extra space to each card container */
   #servicii .card-container {
-    display: block;   /* ensure each container is treated as a block */
-    margin-bottom: 15rem; /* spacing including floating images */
+    padding-bottom: 15rem; /* ensures enough space for the floating image */
   }
 
-  /* remove last margin */
+  /* Optional: remove extra space from last card */
   #servicii .card-container:last-child {
-    margin-bottom: 0;
+    padding-bottom: 0;
   }
 }
+
 
 
 /* Footer text */
